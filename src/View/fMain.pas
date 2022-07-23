@@ -14,7 +14,8 @@ type
     Cadastrar1: TMenuItem;
     Configuraes1: TMenuItem;
     Email1: TMenuItem;
-    Cadastrar2: TMenuItem;
+    ConfigurarEnvio1: TMenuItem;
+    procedure Cadastrar1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -27,5 +28,13 @@ var
 implementation
 
 {$R *.dfm}
+
+uses
+  fListaClientes;
+
+procedure TfrmMain.Cadastrar1Click(Sender: TObject);
+begin
+  call_listaclientes;
+end;
 
 end.

@@ -22,15 +22,16 @@ object frmMain: TfrmMain
       Caption = 'Clientes'
       object Cadastrar1: TMenuItem
         Caption = 'Listagem de Clientes'
-      end
-      object Cadastrar2: TMenuItem
-        Caption = 'Cadastrar'
+        OnClick = Cadastrar1Click
       end
     end
     object Configuraes1: TMenuItem
-      Caption = 'Configura'#231#245'es'
+      Caption = 'Email'
       object Email1: TMenuItem
-        Caption = 'Email'
+        Caption = 'Disparar Email'
+      end
+      object ConfigurarEnvio1: TMenuItem
+        Caption = 'Configurar'
       end
     end
   end

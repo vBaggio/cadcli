@@ -8,7 +8,10 @@ uses
   uEndereco in 'Model\uEndereco.pas',
   DataModule.Geral in 'DAO\DataModule.Geral.pas' {dmGeral: TDataModule},
   uClienteController in 'Controller\uClienteController.pas',
-  uClienteDAO in 'DAO\uClienteDAO.pas';
+  uClienteDAO in 'DAO\uClienteDAO.pas',
+  fListaClientes in 'View\fListaClientes.pas' {frmListCli},
+  uUtilities in 'Utils\uUtilities.pas',
+  uListaClientesController in 'Controller\uListaClientesController.pas';
 
 {$R *.res}
 

@@ -119,6 +119,12 @@
         </DCCReference>
         <DCCReference Include="Controller\uClienteController.pas"/>
         <DCCReference Include="DAO\uClienteDAO.pas"/>
+        <DCCReference Include="View\fListaClientes.pas">
+            <Form>frmListCli</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Utils\uUtilities.pas"/>
+        <DCCReference Include="Controller\uListaClientesController.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

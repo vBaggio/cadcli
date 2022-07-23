@@ -36,7 +36,6 @@ type
     mtbEnderecosUF: TStringField;
     mtbEnderecosPais: TStringField;
     procedure DataModuleCreate(Sender: TObject);
-    procedure DataModuleDestroy(Sender: TObject);
   private
     var FQuery: TFDQuery;
     function getQuery :TFDQuery;
@@ -59,26 +58,13 @@ procedure TdmGeral.DataModuleCreate(Sender: TObject);
 begin
   connMemory.Connected := true;
   lsqlMemory.Active := true;
-
-end;
-
-procedure TdmGeral.DataModuleDestroy(Sender: TObject);
-begin
-  FreeAndNil(FQuery);
 end;
 
 function TdmGeral.getQuery: TFDQuery;
 begin
-  if not Assigned(Self.FQuery) then
-  begin
-    Self.FQuery := TFDQuery.Create(nil);
-    Self.FQuery.Connection := connMemory;
-  end;
 
-  if Self.FQuery.Active then
-    Self.FQuery.Close;
-
-  Self.FQuery.SQL.Clear;
+  Self.FQuery := TFDQuery.Create(nil);
+  Self.FQuery.Connection := connMemory;
 
   Result := Self.FQuery;
 end;
