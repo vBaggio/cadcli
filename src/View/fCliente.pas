@@ -47,6 +47,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnSalvarClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
+    procedure edtCEPExit(Sender: TObject);
   private
     FController: TClienteController;
     procedure CarregarDados;
@@ -161,6 +162,21 @@ begin
     ShowMessage(Erro)
   else
     Close;
+end;
+
+procedure TfrmCliente.edtCEPExit(Sender: TObject);
+begin
+  if MessageDlg('Consultar CEP por API ?' ,
+    mtConfirmation, [mbOK, mbCancel], 0) = mrOk
+  then
+    if FController.consultarCEP(edtCEP.Text) then
+    begin
+      CarregarEndereco;
+
+      edtNumero.SetFocus;
+    end
+    else
+      ShowMessage('Erro ao consultar CEP');
 end;
 
 procedure TfrmCliente.edtFoneExit(Sender: TObject);

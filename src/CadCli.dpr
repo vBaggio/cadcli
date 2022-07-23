@@ -11,7 +11,8 @@ uses
   uClienteDAO in 'DAO\uClienteDAO.pas',
   fListaClientes in 'View\fListaClientes.pas' {frmListCli},
   uUtilities in 'Utils\uUtilities.pas',
-  uListaClientesController in 'Controller\uListaClientesController.pas';
+  uListaClientesController in 'Controller\uListaClientesController.pas',
+  DataModule.VIACEP in 'Services\DataModule.VIACEP.pas' {dmVIACEP: TDataModule};
 
 {$R *.res}
 
@@ -20,5 +21,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TdmGeral, dmGeral);
   Application.CreateForm(TfrmMain, frmMain);
+  Application.CreateForm(TdmVIACEP, dmVIACEP);
   Application.Run;
 end.

@@ -5,7 +5,7 @@ interface
 uses
   System.SysUtils,
 
-  uCliente, uEndereco, uClienteDAO;
+  uCliente, uEndereco, uClienteDAO, DataModule.VIACEP;
 
 type TClienteController = class
   private
@@ -20,11 +20,18 @@ type TClienteController = class
 
     function carregarCliente(AId: integer): boolean;
     function salvarCliente(var AErro:string): boolean;
+
+    function consultarCEP(ACEP: string): boolean;
 end;
 
 implementation
 
 { TClienteController }
+
+function TClienteController.consultarCEP(ACEP: string): boolean;
+begin
+  Result := dmVIACEP.consultarCEP(ACEP, FCliente.Enderecos.Items[0]);
+end;
 
 constructor TClienteController.Create(AId: integer = 0);
 begin
