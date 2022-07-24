@@ -194,7 +194,7 @@ end;
 
 procedure TfrmCliente.edtFoneExit(Sender: TObject);
 begin
-  FormatarTelefone(edtFone.Text);
+  edtFone.Text := FormatarTelefone(edtFone.Text);
 end;
 
 procedure TfrmCliente.FormClose(Sender: TObject; var Action: TCloseAction);

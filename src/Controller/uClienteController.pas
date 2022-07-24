@@ -83,6 +83,7 @@ begin
       Add('Logradouro: ' + Logradouro);
       Add('Numero: ' + Numero);
       Add('Complemento: ' + Complemento);
+      Add('Bairro: ' + Bairro);
       Add('Cidade: ' + Cidade);
       Add('UF: ' + UF);
       Add('Pais: ' + Pais);
