@@ -4,12 +4,12 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
-
-  uClienteController, Vcl.Mask, Vcl.StdCtrls, FireDAC.Stan.Intf,
-  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Mask, Vcl.StdCtrls,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, Data.DB, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client;
+  FireDAC.Comp.Client, Datasnap.DBClient,
+
+  uClienteController;
 
 type
   TfrmCliente = class(TForm)
@@ -42,12 +42,14 @@ type
     btnCancelar: TButton;
     edtCEP: TMaskEdit;
     edtCPF: TMaskEdit;
+    chkEmail: TCheckBox;
     procedure edtFoneExit(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnSalvarClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
     procedure edtCEPExit(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
     FController: TClienteController;
     procedure CarregarDados;
@@ -74,7 +76,8 @@ begin
     frmCliente := TfrmCliente.Create(nil);
     frmCliente.FController := TClienteController.Create(Aid);
 
-    if AId = 0 then
+    frmCliente.chkEmail.Checked := AId = 0;
+    if frmCliente.chkEmail.Checked  then
       frmCliente.Caption := 'Novo Cliente'
     else
       frmCliente.Caption := 'Atualização de Cadastro';
@@ -93,6 +96,11 @@ end;
 procedure TfrmCliente.btnSalvarClick(Sender: TObject);
 begin
   SalvarDados;
+end;
+
+procedure TfrmCliente.Button1Click(Sender: TObject);
+begin
+  FController.enviarEmail;
 end;
 
 procedure TfrmCliente.CarregarDados;
@@ -161,7 +169,12 @@ begin
   if not FController.salvarCliente(Erro) then
     ShowMessage(Erro)
   else
+  begin
+    if chkEmail.Checked then
+      FController.enviarEmail;
+
     Close;
+  end;
 end;
 
 procedure TfrmCliente.edtCEPExit(Sender: TObject);

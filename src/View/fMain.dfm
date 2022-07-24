@@ -29,9 +29,11 @@ object frmMain: TfrmMain
       Caption = 'Email'
       object Email1: TMenuItem
         Caption = 'Disparar Email'
+        OnClick = Email1Click
       end
       object ConfigurarEnvio1: TMenuItem
         Caption = 'Configurar'
+        OnClick = ConfigurarEnvio1Click
       end
     end
   end

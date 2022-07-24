@@ -13,7 +13,7 @@ uses
   FireDAC.Stan.StorageBin,
   VCL.Grids,
 
-  DataModule.Geral, uCliente, uEndereco;
+  dmGeral, uCliente, uEndereco;
 
 type TClienteDAO = class
   private
@@ -37,7 +37,7 @@ implementation
 
 constructor TClienteDAO.Create;
 begin
-  FConn := dmGeral.connMemory;
+  FConn := dtmGeral.connMemory;
 end;
 
 function TClienteDAO.Delete(AClienteId: integer): boolean;
@@ -63,7 +63,7 @@ end;
 function TClienteDAO.Find(ACliente: TCliente): boolean;
 begin
   try
-    FQuery := dmGeral.Query;
+    FQuery := dtmGeral.Query;
 
     with FQuery, ACliente do
     begin
@@ -85,11 +85,11 @@ begin
       SQL.Clear;
       SQL.Add('SELECT * FROM ENDERECOS WHERE idcliente = ' + intToStr(ACliente.IDCliente));
       Open;
-
       var count: integer := 0;
+
       while not Eof do
       begin
-        Enderecos.Add(TEndereco.Create(FieldByName('IdEndereco').AsInteger));
+        Enderecos.Add(TEndereco.Create);
 
         with Enderecos.Items[count] do
         begin
@@ -188,7 +188,7 @@ begin
   Result := False;
 
   try
-    FQuery := dmGeral.Query;
+    FQuery := dtmGeral.Query;
 
     with FQuery, AStringGrid do
     begin

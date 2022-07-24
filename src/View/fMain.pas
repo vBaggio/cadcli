@@ -16,6 +16,8 @@ type
     Email1: TMenuItem;
     ConfigurarEnvio1: TMenuItem;
     procedure Cadastrar1Click(Sender: TObject);
+    procedure ConfigurarEnvio1Click(Sender: TObject);
+    procedure Email1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -30,11 +32,21 @@ implementation
 {$R *.dfm}
 
 uses
-  fListaClientes;
+  fListaClientes, fEmail, fConfigEmail;
 
 procedure TfrmMain.Cadastrar1Click(Sender: TObject);
 begin
   call_listaclientes;
+end;
+
+procedure TfrmMain.ConfigurarEnvio1Click(Sender: TObject);
+begin
+  call_configEmail;
+end;
+
+procedure TfrmMain.Email1Click(Sender: TObject);
+begin
+  call_email;
 end;
 
 end.

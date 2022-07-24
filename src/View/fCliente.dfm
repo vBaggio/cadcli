@@ -82,7 +82,6 @@ object frmCliente: TfrmCliente
     Top = 76
     Width = 190
     Height = 21
-    CharCase = ecUpperCase
     TabOrder = 4
   end
   object GroupBox1: TGroupBox
@@ -253,5 +252,15 @@ object frmCliente: TfrmCliente
     MaxLength = 14
     TabOrder = 2
     Text = ''
+  end
+  object chkEmail: TCheckBox
+    Left = 8
+    Top = 338
+    Width = 150
+    Height = 17
+    Caption = 'Disparar Email ao Salvar'
+    Checked = True
+    State = cbChecked
+    TabOrder = 8
   end
 end

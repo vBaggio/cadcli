@@ -112,8 +112,8 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Model\uEndereco.pas"/>
-        <DCCReference Include="DAO\DataModule.Geral.pas">
-            <Form>dmGeral</Form>
+        <DCCReference Include="DAO\dmGeral.pas">
+            <Form>dtmGeral</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
@@ -125,10 +125,22 @@
         </DCCReference>
         <DCCReference Include="Utils\uUtilities.pas"/>
         <DCCReference Include="Controller\uListaClientesController.pas"/>
-        <DCCReference Include="Services\DataModule.VIACEP.pas">
-            <Form>dmVIACEP</Form>
+        <DCCReference Include="Services\dmViacep.pas">
+            <Form>dtmVIACEP</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Model\uConfigEmail.pas"/>
+        <DCCReference Include="Services\uEnviarEmail.pas"/>
+        <DCCReference Include="DAO\uConfigEmailDAO.pas"/>
+        <DCCReference Include="View\fConfigEmail.pas">
+            <Form>frmConfigEmail</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Controller\uEmailController.pas"/>
+        <DCCReference Include="View\fEmail.pas">
+            <Form>frmEmail</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>

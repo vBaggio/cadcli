@@ -27,11 +27,10 @@ type TEndereco = class
     procedure SetPais(const Value: string);
 
   public
-    constructor Create(AIdEndereco: integer = 0);
+    constructor Create();
     destructor  Destroy; override;
 
   published
-    property IDEndereco  :integer  read FIDEndereco;
     property CEP         :string   read FCEP          write SetCEP;
     property Logradouro  :string   read FLogradouro   write SetLogradouro;
     property Numero      :string   read FNumero       write SetNumero;
@@ -51,9 +50,8 @@ implementation
 
 { TEndereco }
 
-constructor TEndereco.Create(AIdEndereco: integer);
+constructor TEndereco.Create();
 begin
-  FIdEndereco := AIdEndereco;
 end;
 
 destructor TEndereco.Destroy;
