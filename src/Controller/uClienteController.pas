@@ -53,6 +53,10 @@ function TClienteController.enviarEmail: boolean;
 var Anexo, Mensagem: TStringList;
 begin
   var LPath := ExtractFilePath(Application.ExeName) + 'temp\';
+
+   if not TDirectory.Exists(LPath) then
+    TDirectory.CreateDirectory(LPath);
+
   LPath := FCliente.toXML(LPath);
 
   if not FileExists(LPath) then
